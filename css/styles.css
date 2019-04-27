@@ -1,0 +1,32 @@
+#navbar {
+  display: none;
+}
+
+#main-doc {
+  width: 100%;
+}
+
+#title {
+  display: block;
+}
+
+/* desktop screen */
+@media only screen and (min-width: 768px) {
+  #navbar {
+    display: block;
+    position:fixed;
+    background: lightgreen;
+    width: 200px;
+    left: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  #main-doc {
+    margin-left: 200px;
+  }
+
+  #title {
+    display: none;
+  }
+}

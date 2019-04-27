@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap collapse needs jquery & popper.js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -19,24 +23,59 @@
 <!-- on laptop/desktop, #navbar is always visible on left side -->
 
 <body>
-  <nav id="navbar">
-    <header>JavaScript and Test Driven Development</header>
-    <a href="#Blah_Blah_Headline" class="nav-link">Blah Blah Headline</a>
-  </nav>
-  <main id="main-doc">
-    <section class="main-section" id="Blah_Blah_Headline">
-      <header>Blah Blah Headline</header>
-      <p>content</p>
-      <ul>
-        <li>..</li>
-        <li>...</li>
-        <li>...</li>
-      </ul>
-      <p>content</p>
-      <p>...</p>
-      <p>...</p>
-    </section>
-  </main>
+  <div class="d-flex bg-secondary">
+    <nav id="navbar">
+      <header>JavaScript and Test Driven Development</header>
+      <a href="#Headline1" class="btn-block">Blah Blah Headline 1</a>
+      <a href="#Headline2">Blah Blah Headline 2</a>
+    </nav>
+    <main id="main-doc">
+      <h1 id="title">JavaScript and Test Driven Development</h1>
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <a id="#Headline1" class="nav-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">Headline 1</a>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+          <div class="card-body">
+            <section class="main-section" id="Headline1">
+              <header>Blah Blah Headline</header>
+              <p>content</p>
+              <ul>
+                <li>..</li>
+                <li>...</li>
+                <li>...</li>
+              </ul>
+              <p>...</p>
+              <p>...</p>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <a id="#Headline2" class="nav-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">Blah Blah Headline 2</a>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+          <div class="card-body">
+            <section class="main-section" id="Headline2">
+              <header>Blah Blah Headline 2</header>
+              <p>content</p>
+              <ul>
+                <li>..</li>
+                <li>...</li>
+                <li>...</li>
+              </ul>
+              <p>...</p>
+              <p>...</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
 </body>
 
 </html>
