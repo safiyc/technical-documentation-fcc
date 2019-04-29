@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- bootstrap collapse needs jquery & popper.js -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- bootstrap.js, jquery, popper.js - local files bc sometimes I dont have internet access, and  dont want to install via package maanagement -->
+  <script src="js/jquery-3.4.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -25,27 +26,42 @@
 <body>
   <div class="d-flex bg-secondary">
     <nav id="navbar">
-      <header>JavaScript and Test Driven Development</header>
-      <a href="#Headline1" class="btn-block">Blah Blah Headline 1</a>
-      <a href="#Headline2">Blah Blah Headline 2</a>
+      <header class="text-center">JavaScript and Test Driven Development</header>
+      <a href="#Headline1" class="btn-block nav-link">Blah Blah Headline 1</a>
+      <a href="#Headline2" class="btn-block nav-link">Blah Blah Headline 2</a>
     </nav>
     <main id="main-doc">
-      <h1 id="title">JavaScript and Test Driven Development</h1>
+      <h1 id="title" class="text-center">JavaScript and Test Driven Development</h1>
       <div class="card">
         <div class="card-header" id="headingOne">
-          <a id="#Headline1" class="nav-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-            aria-controls="collapseOne">Headline 1</a>
+          <a id="#Headline1" class="headlines" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">abcHeadline 1</a>
         </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+        <div id="collapseOne" class="collapse collapse_class" aria-labelledby="headingOne">
           <div class="card-body">
             <section class="main-section" id="Headline1">
-              <header>Blah Blah Headline</header>
-              <p>content</p>
-              <ul>
-                <li>..</li>
+              <h2>Intro</h2>
+              <p>
+                Test-driven development (TDD) is a software development process that relies on the repetition of a very
+                short
+                development cycle: requirements are turned into very specific test cases, then the software is improved
+                to pass the new
+                tests, only. This is opposed to software development that allows software to be added that is not proven
+                to meet
+                requirements.
+              </p>
+              <h4>Development Cycle</h4>
+              <ol>
+                <li>
+                  Add a test
+                  <p>
+                    In test-driven development, each new feature begins with writing a test. Write a test that defines a
+                    function or improvements of a function, which should be very succinct.
+                  </p>
+                </li>
                 <li>...</li>
                 <li>...</li>
-              </ul>
+              </ol>
               <p>...</p>
               <p>...</p>
             </section>
@@ -54,10 +70,10 @@
       </div>
       <div class="card">
         <div class="card-header" id="headingTwo">
-          <a id="#Headline2" class="nav-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">Blah Blah Headline 2</a>
+          <a id="#Headline2" class="headlines btn btn-info btn-block" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">Blah Blah Headline 2</a>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+        <div id="collapseTwo" class="collapse collapse_class" aria-labelledby="headingTwo">
           <div class="card-body">
             <section class="main-section" id="Headline2">
               <header>Blah Blah Headline 2</header>
@@ -75,7 +91,7 @@
       </div>
     </main>
   </div>
-
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>
