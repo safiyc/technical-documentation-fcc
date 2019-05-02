@@ -26,69 +26,42 @@
 <body>
   <div class="d-flex bg-secondary">
     <nav id="navbar">
-      <header class="text-center">JavaScript and Test Driven Development</header>
-      <a href="#Headline1" class="btn-block nav-link">Blah Blah Headline 1</a>
-      <a href="#Headline2" class="btn-block nav-link">Blah Blah Headline 2</a>
+      <header class="text-center">
+        JavaScript and Test Driven Development
+      </header>
+      <a href="#introduction" class="btn-block nav-link">Introduction</a>
     </nav>
     <main id="main-doc">
       <h1 id="title" class="text-center">JavaScript and Test Driven Development</h1>
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <a id="#Headline1" class="headlines" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-            aria-controls="collapseOne">abcHeadline 1</a>
-        </div>
-        <div id="collapseOne" class="collapse collapse_class" aria-labelledby="headingOne">
+      <section class="main-section card" id="introduction">
+        <header class=" card-header headlines text-center" id="intro" data-toggle="collapse" data-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">Introduction
+        </header>
+        <div id="collapseOne" class="collapse collapse_class show" aria-labelledby="intro">
           <div class="card-body">
-            <section class="main-section" id="Headline1">
-              <h2>Intro</h2>
-              <p>
-                Test-driven development (TDD) is a software development process that relies on the repetition of a very
-                short
-                development cycle: requirements are turned into very specific test cases, then the software is improved
-                to pass the new
-                tests, only. This is opposed to software development that allows software to be added that is not proven
-                to meet
-                requirements.
-              </p>
-              <h4>Development Cycle</h4>
-              <ol>
-                <li>
-                  Add a test
-                  <p>
-                    In test-driven development, each new feature begins with writing a test. Write a test that defines a
-                    function or improvements of a function, which should be very succinct.
-                  </p>
-                </li>
-                <li>...</li>
-                <li>...</li>
-              </ol>
-              <p>...</p>
-              <p>...</p>
-            </section>
+            <p>
+              Test-driven development (TDD) is a software development process that relies on the repetition of a very
+              short development cycle: requirements are turned into very specific test cases, then the software is
+              improved to pass the new tests, only. This is opposed to software development that allows software to be
+              added that is not proven to meet requirements.
+            </p>
+            <h4>Development Cycle</h4>
+            <ol>
+              <li>
+                Add a test
+                <p>
+                  In test-driven development, each new feature begins with writing a test. Write a test that defines a
+                  function or improvements of a function, which should be very succinct.
+                </p>
+              </li>
+              <li>...</li>
+              <li>...</li>
+            </ol>
+            <p>...</p>
+            <p>...</p>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <a id="#Headline2" class="headlines btn btn-info btn-block" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">Blah Blah Headline 2</a>
-        </div>
-        <div id="collapseTwo" class="collapse collapse_class" aria-labelledby="headingTwo">
-          <div class="card-body">
-            <section class="main-section" id="Headline2">
-              <header>Blah Blah Headline 2</header>
-              <p>content</p>
-              <ul>
-                <li>..</li>
-                <li>...</li>
-                <li>...</li>
-              </ul>
-              <p>...</p>
-              <p>...</p>
-            </section>
-          </div>
-        </div>
-      </div>
+      </section>
     </main>
   </div>
   <script src="js/scripts.js"></script>
