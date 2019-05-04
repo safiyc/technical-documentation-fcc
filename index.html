@@ -15,29 +15,25 @@
   <title>JavaScript and Test-Driven Development</title>
 </head>
 
-<!-- at least:
-  5 <section> total,
-  10 <p> total,
-  5 code blocks total,
-  5 <li> total,
-  1 media query -->
-<!-- on laptop/desktop, #navbar is always visible on left side -->
-
 <body>
   <div class="d-flex bg-secondary">
     <nav id="navbar">
-      <header class="text-center">
-        JavaScript and Test Driven Development
-      </header>
-      <a href="#introduction" class="btn-block nav-link">Introduction</a>
+      <header id="title-side" class="text-center font-weight-bold title bg-secondary">Test Driven Development</header>
+      <div class="links">
+        <a href="#Introduction" class="nav-link">Introduction</a>
+        <a href="#Best_Practices" class="nav-link">Best Practices</a>
+        <a href="#Benefits" class="nav-link">Benefits</a>
+        <a href="#JavaScript_and_TDD" class="nav-link">JavaScript and TDD</a>
+      </div>
     </nav>
     <main id="main-doc">
-      <h1 id="title" class="text-center">JavaScript and Test Driven Development</h1>
-      <section class="main-section card" id="introduction">
-        <header class=" card-header headlines text-center" id="intro" data-toggle="collapse" data-target="#collapseOne"
-          aria-expanded="true" aria-controls="collapseOne">Introduction
+      <h1 id="title-main" class="text-center title">Test Driven Development</h1>
+
+      <section class="main-section card" id="Introduction">
+        <header class=" card-header headlines text-center" id="intro_label" data-toggle="collapse"
+          data-target="#collapseIntro" aria-expanded="true" aria-controls="collapseIntro">Introduction
         </header>
-        <div id="collapseOne" class="collapse collapse_class show" aria-labelledby="intro">
+        <div id="collapseIntro" class="collapse collapse_class show" aria-labelledby="intro_label">
           <div class="card-body">
             <p>
               Test-driven development (TDD) is a software development process that relies on the repetition of a very
@@ -45,20 +41,341 @@
               improved to pass the new tests, only. This is opposed to software development that allows software to be
               added that is not proven to meet requirements.
             </p>
-            <h4>Development Cycle</h4>
+            <h5>Development Cycle</h5>
             <ol>
               <li>
-                Add a test
+                <span>Add a test</span>
                 <p>
-                  In test-driven development, each new feature begins with writing a test. Write a test that defines a
-                  function or improvements of a function, which should be very succinct.
+                  In test-driven development, each new feature begins with writing a test. The developer can accomplish
+                  this through use cases and user stories to cover the requirements and exception conditions,
+                  and can write the test in whatever testing framework is appropriate to the software environment.
                 </p>
               </li>
-              <li>...</li>
-              <li>...</li>
+              <li>
+                <span>Run all tests and see if the new test fails</span>
+                <p>
+                  This validates that the test harness is working correctly, shows that the new test does not pass
+                  without requiring new
+                  code because the required behavior already exists, and it rules out the possibility that the new test
+                  is flawed and will
+                  always pass. The new test should fail for the expected reason. This step increases the developer's
+                  confidence in the new
+                  test.
+                </p>
+              </li>
+              <li>
+                <span>Write the code</span>
+                <p>
+                  The next step is to write some code that causes the test to pass. The new code written at this stage
+                  is not perfect and
+                  may, for example, pass the test in an inelegant way. That is acceptable because it will be improved
+                  and honed in Step 5.
+                  At this point, the only purpose of the written code is to pass the test. The programmer must not write
+                  code that is
+                  beyond the functionality that the test checks.
+                </p>
+              </li>
+              <li>
+                <span>Run tests</span>
+                <p>
+                  If all test cases now pass, the programmer can be confident that the new code meets the test
+                  requirements, and does not
+                  break or degrade any existing features. If they do not, the new code must be adjusted until they do.
+                </p>
+              </li>
+              <li>
+                <span>Refactor code</span>
+                <p>
+                  The growing code base must be cleaned up regularly during test-driven development. New code can be
+                  moved from where it
+                  was convenient for passing a test to where it more logically belongs. Duplication must be removed.
+                </p>
+              </li>
+              <li>
+                <span>Repeat</span>
+                <p>
+                  Starting with another new test, the cycle is then repeated to push forward the functionality. The size
+                  of the steps
+                  should always be small, with as few as 1 to 10 edits between each test run.
+                </p>
+              </li>
             </ol>
-            <p>...</p>
-            <p>...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-section card" id="Best_Practices">
+        <header class=" card-header headlines text-center" id="practices_label" data-toggle="collapse"
+          data-target="#collapsePractices" aria-expanded="true" aria-controls="collapsePractices">Best Practices
+        </header>
+        <div id="collapsePractices" class="collapse collapse_class show" aria-labelledby="practices_label">
+          <div class="card-body">
+            <h5>Test Structure</h5>
+            <p>
+              Effective layout of a test case ensures all required actions are completed, improves the readability of
+              the test case,
+              and smooths the flow of execution. Consistent structure helps in building a self-documenting test case. A
+              commonly
+              applied structure for test cases has (1) setup, (2) execution, (3) validation, and (4) cleanup.
+            </p>
+            <ul>
+              <li>
+                <span>Setup</span>
+                <p>
+                  Put the Unit Under Test (UUT) or the overall test system in the state needed to run the test.
+                </p>
+              </li>
+              <li>
+                <span>Execution</span>
+                <p>
+                  Trigger/drive the UUT to perform the target behavior and capture all output, such as return values and
+                  output
+                  parameters. This step is usually very simple.
+                </p>
+              </li>
+              <li>
+                <span>Validation</span>
+                <p>
+                  Ensure the results of the test are correct. These results may include explicit outputs captured during
+                  execution or
+                  state changes in the UUT.
+                </p>
+              </li>
+              <li>
+                <span>Cleanup</span>
+                <p>
+                  Ensure the results of the test are correct. These results may include explicit outputs captured during
+                  execution or
+                  state changes in the UUT.
+                </p>
+              </li>
+            </ul>
+            <h5>Individual best practices</h5>
+            <p>
+              Individual best practices states that one should:
+            </p>
+            <ul>
+              <li>
+                Separate common set-up and teardown logic into test support services utilized by the appropriate test
+                cases.
+              </li>
+              <li>
+                Keep each test oracle focused on only the results necessary to validate its test.
+              </li>
+              <li>
+                Design time-related tests to allow tolerance for execution in non-real time operating systems. The
+                common practice of
+                allowing a 5-10 percent margin for late execution reduces the potential number of false negatives in
+                test execution.
+              </li>
+              <li>
+                Treat your test code with the same respect as your production code. It also must work correctly for both
+                positive and
+                negative cases, last a long time, and be readable and maintainable.
+              </li>
+              <li>
+                Get together with your team and review your tests and test practices to share effective techniques and
+                catch bad habits.
+                It may be helpful to review this section during your discussion.
+              </li>
+            </ul>
+            <h5>Practices to avoid, or "anti-patterns"</h5>
+            <ul>
+              <li>
+                Having test cases depend on system state manipulated from previously executed test cases (i.e., you
+                should always start
+                a unit test from a known and pre-configured state).
+              </li>
+              <li>
+                Dependencies between test cases. A test suite where test cases are dependent upon each other is brittle
+                and complex.
+                Execution order should not be presumed. Basic refactoring of the initial test cases or structure of the
+                UUT causes a
+                spiral of increasingly pervasive impacts in associated tests.
+              </li>
+              <li>
+                Interdependent tests can cause cascading false negatives. A failure in an early test case breaks a
+                later test case even if no actual fault exists in the UUT, increasing defect analysis and debug efforts.
+              </li>
+              <li>
+                Testing precise execution behavior timing or performance.
+              </li>
+              <li>
+                Building "all-knowing oracles". An oracle that inspects more than necessary is more expensive and
+                brittle over time.
+                This very common error is dangerous because it causes a subtle but pervasive time sink across the
+                complex project.
+              </li>
+              <li>
+                Testing implementation details.
+              </li>
+              <li>
+                Slow running tests.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-section card" id="Benefits">
+        <header class=" card-header headlines text-center" id="benefits_label" data-toggle="collapse"
+          data-target="#collapseBenefits" aria-expanded="true" aria-controls="collapseBenefits">Benefits
+        </header>
+        <div id="collapseBenefits" class="collapse collapse_class show" aria-labelledby="benefits_label">
+          <div class="card-body">
+            <p>
+              A 2005 study found that using TDD meant writing more tests and, in turn, programmers who wrote more tests
+              tended to be
+              more productive. Hypotheses relating to code quality and a more direct correlation between TDD and
+              productivity were
+              inconclusive.
+            </p>
+            <p>
+              Programmers using pure TDD on new ("greenfield") projects reported they only rarely felt the need to
+              invoke a debugger.
+              Used in conjunction with a version control system, when tests fail unexpectedly, reverting the code to the
+              last version
+              that passed all tests may often be more productive than debugging.
+            </p>
+            <p>
+              Test-driven development offers more than just simple validation of correctness, but can also drive the
+              design of a
+              program. By focusing on the test cases first, one must imagine how the functionality is used by clients
+              (in the
+              first case, the test cases). So, the programmer is concerned with the interface before the implementation.
+              This benefit
+              is complementary to design by contract as it approaches code through test cases rather than through
+              mathematical
+              assertions or preconceptions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-section card" id="JavaScript_and_TDD">
+        <header class=" card-header headlines text-center" id="js_tdd_label" data-toggle="collapse"
+          data-target="#collapseJsTdd" aria-expanded="true" aria-controls="collapseJsTdd">JavaScript and TDD
+        </header>
+        <div id="collapseJsTdd" class="collapse collapse_class show" aria-labelledby="js_tdd_label">
+          <div class="card-body">
+            <p>In the next couple sections, we look at TDD in action using JavaScript.</p>
+            <p>
+              There are many JavaScript testing frameworks; two of the most popular are <strong>Jasmine</strong> and
+              <strong>Mocha</strong>. Let's take a look at a Jasmine setup.
+            </p>
+            <h5>Installation</h5>
+            <p>If haven't already done so, go ahead and run <span class="code">npm init</span> to create a
+              package.json
+              in the
+              roote of your project folder. To
+              install Jasmine, run the below in your terminal:</p>
+            <pre class="code"><code>npm install jasmine-core@2.99.0 --save-dev</code></pre>
+            <pre class="code"><code>npm install jasmine@3.1.0 --save-dev</code></pre>
+            <pre class="code"><code>./node_modules/.bin/jasmine init</code></pre>
+            <p>Add the below code to your package.json file.</p>
+            <p class="code_filename">package.json</p>
+            <pre class="code code_block"><code style>
+              ...
+              "scripts": {
+                "test": "jasmine"
+              }
+              ...
+            </code></pre>
+            <p>
+              Jasmine is now ready for us to write tests, but first we need to set up a test runner to run our tests.
+              Let's use a test runner called <strong>Karma</strong>.
+            </p>
+            <pre class="code"><code>npm install karma@2.0.0 --save-dev</code></pre>
+            <pre class="code"><code>npm install karma-jasmine@1.1.1 --save-dev</code></pre>
+            <p>This will tell Karma to launch Chrome.</p>
+            <pre class="code"><code>npm install karma-chrome-launcher@2.2.0 --save-dev</code></pre>
+            <p>These allow us to use Karma-specific commands in the terminal.</p>
+            <pre class="code"><code>npm install karma-cli@1.0.1 --save-dev</code></pre>
+            <p>This allows Karma to work with webpack if your project has a webpack setup.</p>
+            <pre class="code"><code>npm install karma-webpack@2.0.13 --save-dev</code></pre>
+            <p>If we're using jQuery, go ahead and install this.</p>
+            <pre class="code"><code>npm install karma-jquery@0.2.2 --save-dev</code></pre>
+            <p>This makes it so the test results are easier to read.</p>
+            <pre class="code"><code>npm install karma-jasmine-html-reporter@0.2.2 --save-dev</code></pre>
+            <p>We have to initialize Karma.</p>
+            <pre class="code"><code>karma init</code></pre>
+            <p>A series of prompts will appear. Go ahead and hit <em>Enter</em> on all of the prompts. We will enter the
+              information in the generated <em>karma.conf.js</em> file.</p>
+            <p class="code_filename">karma.conf.js</p>
+            <pre class="code code_block"><code>
+              const webpackConfig = require('./webpack.config.js');
+              
+              module.exports = function(config) {
+              config.set({
+              basePath: '',
+              frameworks: ['jquery-3.2.1', 'jasmine'],
+              files: [
+              'src/*.js',
+              'spec/*spec.js'
+              ],
+              webpack: webpackConfig,
+              exclude: [
+              ],
+              preprocessors: {
+              'src/*.js': ['webpack'],
+              'spec/*spec.js': ['webpack']
+              },
+              plugins: [
+              'karma-jquery',
+              'karma-webpack',
+              'karma-jasmine',
+              'karma-chrome-launcher',
+              'karma-jasmine-html-reporter'
+              ],
+              reporters: ['progress', 'kjhtml'],
+              port: 9876,
+              colors: true,
+              logLevel: config.LOG_INFO,
+              autoWatch: true,
+              browsers: ['Chrome'],
+              singleRun: false,
+              concurrency: Infinity
+              })
+              }
+            </code></pre>
+            <p>To make the CLI test command point to Karma:</p>
+            <p class="code_filename">package.json</p>
+            <pre class="code code_block"><code>
+              ...
+              "scripts": {
+                "test": "./node_modules/karma/bin/karma start karma.conf.js"
+              },
+              ...
+            </code></pre>
+            <p>Install <em>source mapping</em> to see the correct stack trace for errors.</p>
+            <pre class="code"><code>npm install karma-sourcemap-loader@0.3.7 --save-dev</code></pre>
+            <p class="code_filename">karma.conf.js</p>
+            <pre class="code code_block"><code>
+              ...
+              preprocessors: {
+              'src/*.js': ['webpack', 'sourcemap'],
+              'spec/*spec.js': ['webpack', 'sourcemap']
+              },
+              ...
+            </code></pre>
+            <p class="code_filename">webpack.config.js</p>
+            <pre class="code code_block"><code>
+              ...
+              module.exports = {
+              ...
+              {
+              test: /\.js$/,
+              exclude: [
+              /node_modules/,
+              /spec/
+              ],
+              loader: "eslint-loader"
+              }
+              ]
+              }
+              };
+            </code></pre>
+
           </div>
         </div>
       </section>
