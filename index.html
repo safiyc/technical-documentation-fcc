@@ -16,14 +16,15 @@
 </head>
 
 <body>
-  <div class="d-flex bg-secondary">
+  <div class="d-flex flex-wrap bg-secondary">
     <nav id="navbar">
       <header id="title-side" class="text-center font-weight-bold title bg-secondary">Test Driven Development</header>
       <div class="links">
         <a href="#Introduction" class="nav-link">Introduction</a>
         <a href="#Best_Practices" class="nav-link">Best Practices</a>
         <a href="#Benefits" class="nav-link">Benefits</a>
-        <a href="#JavaScript_and_TDD" class="nav-link">JavaScript and TDD</a>
+        <a href="#JavaScript_and_TDD_Setting_Up" class="nav-link">JavaScript and TDD: Setting Up</a>
+        <a href="#JavaScript_and_TDD_Writing_Specs" class="nav-link">JavaScript and TDD: Writing Specs</a>
       </div>
     </nav>
     <main id="main-doc">
@@ -252,9 +253,9 @@
         </div>
       </section>
 
-      <section class="main-section card" id="JavaScript_and_TDD">
+      <section class="main-section card" id="JavaScript_and_TDD_Setting_Up">
         <header class=" card-header headlines text-center" id="js_tdd_label" data-toggle="collapse"
-          data-target="#collapseJsTdd" aria-expanded="true" aria-controls="collapseJsTdd">JavaScript and TDD
+          data-target="#collapseJsTdd" aria-expanded="true" aria-controls="collapseJsTdd">JavaScript and TDD: Setting Up
         </header>
         <div id="collapseJsTdd" class="collapse collapse_class show" aria-labelledby="js_tdd_label">
           <div class="card-body">
@@ -264,17 +265,17 @@
               <strong>Mocha</strong>. Let's take a look at a Jasmine setup.
             </p>
             <h5>Installation</h5>
-            <p>If haven't already done so, go ahead and run <span class="code">npm init</span> to create a
+            <p>First, we want to run <span class="code">npm init</span> in the terminal to create a
               package.json
               in the
-              roote of your project folder. To
-              install Jasmine, run the below in your terminal:</p>
+              root of the project folder. Then,
+              run the below to install Jasmine.</p>
             <pre class="code"><code>npm install jasmine-core@2.99.0 --save-dev</code></pre>
             <pre class="code"><code>npm install jasmine@3.1.0 --save-dev</code></pre>
             <pre class="code"><code>./node_modules/.bin/jasmine init</code></pre>
             <p>Add the below code to your package.json file.</p>
             <p class="code_filename">package.json</p>
-            <pre class="code code_block"><code style>
+            <pre class="code code_block"><code>
               ...
               "scripts": {
                 "test": "jasmine"
@@ -282,7 +283,7 @@
               ...
             </code></pre>
             <p>
-              Jasmine is now ready for us to write tests, but first we need to set up a test runner to run our tests.
+              Jasmine is now ready for us to write tests, but we need to set up a test runner to run our tests.
               Let's use a test runner called <strong>Karma</strong>.
             </p>
             <pre class="code"><code>npm install karma@2.0.0 --save-dev</code></pre>
@@ -290,10 +291,11 @@
             <p>This will tell Karma to launch Chrome.</p>
             <pre class="code"><code>npm install karma-chrome-launcher@2.2.0 --save-dev</code></pre>
             <p>These allow us to use Karma-specific commands in the terminal.</p>
+            <pre class="code"><code>npm install karma-cli@1.0.1 -g</code></pre>
             <pre class="code"><code>npm install karma-cli@1.0.1 --save-dev</code></pre>
             <p>This allows Karma to work with webpack if your project has a webpack setup.</p>
             <pre class="code"><code>npm install karma-webpack@2.0.13 --save-dev</code></pre>
-            <p>If we're using jQuery, go ahead and install this.</p>
+            <p>If we're using jQuery, go ahead and install it.</p>
             <pre class="code"><code>npm install karma-jquery@0.2.2 --save-dev</code></pre>
             <p>This makes it so the test results are easier to read.</p>
             <pre class="code"><code>npm install karma-jasmine-html-reporter@0.2.2 --save-dev</code></pre>
@@ -358,6 +360,7 @@
               },
               ...
             </code></pre>
+            <p>Add the below to exclude eslint from checking the spec files for errors.</p>
             <p class="code_filename">webpack.config.js</p>
             <pre class="code code_block"><code>
               ...
@@ -375,12 +378,126 @@
               }
               };
             </code></pre>
+            <p>And that's it for the setup. In the next section we take a look at writing specs (also known as tests).
+            </p>
+          </div>
+        </div>
+      </section>
 
+      <section class="main-section card" id="JavaScript_and_TDD_Writing_Specs">
+        <header class=" card-header headlines text-center" id="js_tdd2_label" data-toggle="collapse"
+          data-target="#collapseJsTdd2" aria-expanded="true" aria-controls="collapseJsTdd2">JavaScript and TDD: Writing
+          Specs
+        </header>
+        <div id="collapseJsTdd2" class="collapse collapse_class show" aria-labelledby="js_tdd2_label">
+          <div class="card-body">
+            <p>
+              Let's use an imaginery program called "Triangle Tracker" to write our tests for. This program determines
+              if three provided lengths
+              successfully create a triangle. If the sides can create a triangle, the program determines the type of
+              triangle as equilateral, isosceles, or scalene.
+            </p>
+            <p>
+              After installing Jasmine, a folder called "spec" is automatically created for us. It is here where we
+              write our spec tests.
+            </p>
+            <h5>Writing Specs</h5>
+            <p>Create a spec file "traingle-spec.js" in the "spec" folder.</p>
+            <p class="code_filename">triangle-tracker/spec/triangle-spec.js</p>
+            <pre class="code code_block"><code>
+              describe('Triangle', function() {
+              
+              it('should test whether a Triangle has three sides', function() {
+              //Test content will go here.
+              });
+              });
+            </code></pre>
+            <p>If eslint is used for the project, add the below code so eslint wouldn't throw errors for jasmine (and
+              etc.) syntax.</p>
+            <p class="code_filename">.eslintrc</p>
+            <pre class="code code_block"><code>
+              ...
+              "env": {
+              "browser": true,
+              "jquery": true,
+              "node": true,
+              "jasmine": true
+              },
+              ...
+            </code></pre>
+            <p>Running <span class="code">npm test</span> will show our test passes. That's because our test doesn't
+              have any expectations yet.</p>
+            <p class="code_filename">triangle-tracker/spec/triangle-spec.js</p>
+            <pre class="code code_block"><code>
+              describe('Triangle', function() {
+              
+              it('should test whether a Triangle has three sides', function() {
+              var triangle = new Triangle(3,4,5);
+              expect(triangle.side1).toEqual(3);
+              expect(triangle.side2).toEqual(4);
+              expect(triangle.side3).not.toEqual(6);
+              });
+              
+              });
+            </code></pre>
+            <p>The tests will fail because we need to create a Triangle constructor. In the root folder of the project,
+              create a folder "src" and inside it, a file "triangle.js".</p>
+            <p class="code_filename">src/triangle.js</p>
+            <pre class="code code_block"><code>
+              export function Triangle(side1, side2, side3) {
+              this.side1 = side1;
+              this.side2 = side2;
+              this.side3 = side3;
+              }
+            </code></pre>
+            <p class="code_filename">spec/triangle-spec.js</p>
+            <pre class="code code_block"><code>
+              import { Triangle } from './../src/triangle.js';
+              ...
+            </code></pre>
+            <p>Run <span class="code">npm test</span>. The spec passes. We write more tests, first to confirm they fail,
+              then to make
+              them pass.</p>
+            <p class="code_filename">spec/triangle-spec.js</p>
+            <pre class="code code_block"><code>
+              ...
+              describe('Triangle', function() {
+              
+              ...
+              
+              it('should correctly determine whether three lengths can be made into a triangle', function() {
+              var notTriangle = new Triangle(3,9,22);
+              expect(notTriangle.checkType()).toEqual("not a triangle");
+              });
+              
+              });
+            </code></pre>
+            <p>The spec fails as expected. We need to write the method to make it pass.</p>
+            <p class="code_filename">src/triangle.js</p>
+            <pre class="code code_block"><code>
+              ...
+              Triangle.prototype.checkType = function() {
+              if ((this.side1 > (this.side2 + this.side3)) || (this.side2 > (this.side1 + this.side3)) || (this.side3 > (this.side1 +
+              this.side2))) {
+              return "not a triangle";
+              }
+              };
+            </code></pre>
+            <p>This spec and the previous passed spec should both pass now when we run <span class="code">npm
+                test</span>.</p>
+            <p>There is much more to testing, but for the sake of brevity, this concludes our walkthrough of
+              test-driven-development using JavaScript and Jasmine.</p>
           </div>
         </div>
       </section>
     </main>
+
+
   </div>
+  <footer class="text-center">
+    <a href="http://www.safiycham.com/" target="_blank"><strong>bonsai</strong> a freeCodeCamp project <br />
+      by Safiy Cham&nbsp;&#169;&nbsp; 2019</a>
+  </footer>
   <script src="js/scripts.js"></script>
 </body>
 
