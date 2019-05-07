@@ -1,4 +1,4 @@
-# JavaScript And TDD Documentation
+# Technical Documentation
 ### By Safiy Cham
 
 ## Description
@@ -6,7 +6,8 @@
 A freeCodeCamp responsive website project (part of their front-end certification curriculum). This website contains technical documentation on the implementation of test-driven development in JavaScript projects.
 
 ## ToDo
-* pending...
+* format code blocks to render indentations where appropriate
+* while in mobile, button visible at all time to collapse current displayed section
 
 ## License
 
