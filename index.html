@@ -271,7 +271,7 @@
             <pre class="code"><code>./node_modules/.bin/jasmine init</code></pre>
             <p>Add the below code to your package.json file.</p>
             <p class="code_filename">package.json</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               "scripts": {
                 "test": "jasmine"
@@ -300,45 +300,45 @@
             <p>A series of prompts will appear. Go ahead and hit <em>Enter</em> on all of the prompts. We will enter the
               information in the generated <em>karma.conf.js</em> file.</p>
             <p class="code_filename">karma.conf.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               const webpackConfig = require('./webpack.config.js');
               
               module.exports = function(config) {
-              config.set({
-              basePath: '',
-              frameworks: ['jquery-3.2.1', 'jasmine'],
-              files: [
-              'src/*.js',
-              'spec/*spec.js'
-              ],
-              webpack: webpackConfig,
-              exclude: [
-              ],
-              preprocessors: {
-              'src/*.js': ['webpack'],
-              'spec/*spec.js': ['webpack']
-              },
-              plugins: [
-              'karma-jquery',
-              'karma-webpack',
-              'karma-jasmine',
-              'karma-chrome-launcher',
-              'karma-jasmine-html-reporter'
-              ],
-              reporters: ['progress', 'kjhtml'],
-              port: 9876,
-              colors: true,
-              logLevel: config.LOG_INFO,
-              autoWatch: true,
-              browsers: ['Chrome'],
-              singleRun: false,
-              concurrency: Infinity
-              })
+                config.set({
+                  basePath: '',
+                  frameworks: ['jquery-3.2.1', 'jasmine'],
+                  files: [
+                    'src/*.js',
+                    'spec/*spec.js'
+                  ],
+                  webpack: webpackConfig,
+                  exclude: [
+                  ],
+                  preprocessors: {
+                    'src/*.js': ['webpack'],
+                    'spec/*spec.js': ['webpack']
+                  },
+                  plugins: [
+                    'karma-jquery',
+                    'karma-webpack',
+                    'karma-jasmine',
+                    'karma-chrome-launcher',
+                    'karma-jasmine-html-reporter'
+                  ],
+                  reporters: ['progress', 'kjhtml'],
+                  port: 9876,
+                  colors: true,
+                  logLevel: config.LOG_INFO,
+                  autoWatch: true,
+                  browsers: ['Chrome'],
+                  singleRun: false,
+                  concurrency: Infinity
+                })
               }
             </code></pre>
             <p>To make the CLI test command point to Karma:</p>
             <p class="code_filename">package.json</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               "scripts": {
                 "test": "./node_modules/karma/bin/karma start karma.conf.js"
@@ -348,30 +348,30 @@
             <p>Install <em>source mapping</em> to see the correct stack trace for errors.</p>
             <pre class="code"><code>npm install karma-sourcemap-loader@0.3.7 --save-dev</code></pre>
             <p class="code_filename">karma.conf.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               preprocessors: {
-              'src/*.js': ['webpack', 'sourcemap'],
-              'spec/*spec.js': ['webpack', 'sourcemap']
+                'src/*.js': ['webpack', 'sourcemap'],
+                'spec/*spec.js': ['webpack', 'sourcemap']
               },
               ...
             </code></pre>
             <p>Add the below to exclude eslint from checking the spec files for errors.</p>
             <p class="code_filename">webpack.config.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               module.exports = {
               ...
-              {
-              test: /\.js$/,
-              exclude: [
-              /node_modules/,
-              /spec/
-              ],
-              loader: "eslint-loader"
-              }
-              ]
-              }
+                    {
+                      test: /\.js$/,
+                      exclude: [
+                        /node_modules/,
+                        /spec/
+                      ],
+                      loader: "eslint-loader"
+                    }
+                  ]
+                }
               };
             </code></pre>
             <p>And that's it for the setup. In the next section we take a look at writing specs (also known as tests).
@@ -399,54 +399,54 @@
             <h5>Writing Specs</h5>
             <p>Create a spec file "traingle-spec.js" in the "spec" folder.</p>
             <p class="code_filename">triangle-tracker/spec/triangle-spec.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               describe('Triangle', function() {
               
-              it('should test whether a Triangle has three sides', function() {
-              //Test content will go here.
-              });
+                it('should test whether a Triangle has three sides', function() {
+                  //Test content will go here.
+                });
               });
             </code></pre>
             <p>If eslint is used for the project, add the below code so eslint wouldn't throw errors for jasmine (and
               etc.) syntax.</p>
             <p class="code_filename">.eslintrc</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               "env": {
-              "browser": true,
-              "jquery": true,
-              "node": true,
-              "jasmine": true
+                "browser": true,
+                "jquery": true,
+                "node": true,
+                "jasmine": true
               },
               ...
             </code></pre>
             <p>Running <span class="code">npm test</span> will show our test passes. That's because our test doesn't
               have any expectations yet.</p>
             <p class="code_filename">triangle-tracker/spec/triangle-spec.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               describe('Triangle', function() {
               
-              it('should test whether a Triangle has three sides', function() {
-              var triangle = new Triangle(3,4,5);
-              expect(triangle.side1).toEqual(3);
-              expect(triangle.side2).toEqual(4);
-              expect(triangle.side3).not.toEqual(6);
-              });
+                it('should test whether a Triangle has three sides', function() {
+                  var triangle = new Triangle(3,4,5);
+                  expect(triangle.side1).toEqual(3);
+                  expect(triangle.side2).toEqual(4);
+                  expect(triangle.side3).not.toEqual(6);
+                });
               
               });
             </code></pre>
             <p>The tests will fail because we need to create a Triangle constructor. In the root folder of the project,
               create a folder "src" and inside it, a file "triangle.js".</p>
             <p class="code_filename">src/triangle.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               export function Triangle(side1, side2, side3) {
-              this.side1 = side1;
-              this.side2 = side2;
-              this.side3 = side3;
+                this.side1 = side1;
+                this.side2 = side2;
+                this.side3 = side3;
               }
             </code></pre>
             <p class="code_filename">spec/triangle-spec.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               import { Triangle } from './../src/triangle.js';
               ...
             </code></pre>
@@ -454,28 +454,28 @@
               then to make
               them pass.</p>
             <p class="code_filename">spec/triangle-spec.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               describe('Triangle', function() {
               
-              ...
-              
-              it('should correctly determine whether three lengths can be made into a triangle', function() {
-              var notTriangle = new Triangle(3,9,22);
-              expect(notTriangle.checkType()).toEqual("not a triangle");
-              });
+                ...
+                
+                it('should correctly determine whether three lengths can be made into a triangle', function() {
+                  var notTriangle = new Triangle(3,9,22);
+                  expect(notTriangle.checkType()).toEqual("not a triangle");
+                });
               
               });
             </code></pre>
             <p>The spec fails as expected. We need to write the method to make it pass.</p>
             <p class="code_filename">src/triangle.js</p>
-            <pre class="code code_block"><code>
+            <pre class="code code_block"><code class="format_correction">
               ...
               Triangle.prototype.checkType = function() {
-              if ((this.side1 > (this.side2 + this.side3)) || (this.side2 > (this.side1 + this.side3)) || (this.side3 > (this.side1 +
-              this.side2))) {
-              return "not a triangle";
-              }
+                if ((this.side1 > (this.side2 + this.side3)) || (this.side2 > (this.side1 + this.side3)) || (this.side3 > (this.side1 +
+                this.side2))) {
+                  return "not a triangle";
+                }
               };
             </code></pre>
             <p>This spec and the previous passed spec should both pass now when we run <span class="code">npm

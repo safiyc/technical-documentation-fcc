@@ -19,7 +19,7 @@ window.addEventListener('resize', isResized);
 window.onload = isResized;
 
 // remove leading whitespaces from code block
-let codeBlock = document.getElementsByClassName("code_block");
-for (let i = 0; i < codeBlock.length; i++) {
-  codeBlock[i].textContent = codeBlock[i].textContent.replace(/^\s+/mg, "");
-}
+// let codeBlock = document.getElementsByClassName("code_block");
+// for (let i = 0; i < codeBlock.length; i++) {
+//   codeBlock[i].textContent = codeBlock[i].textContent.replace(/^\s+/mg, "");
+// }

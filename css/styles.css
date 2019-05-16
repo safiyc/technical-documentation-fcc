@@ -54,14 +54,21 @@ li > span {
   padding: 3px 6px;
 }
 
+.format_correction {
+  display: block;
+  margin-left: -110px;
+}
+
 .code_filename {
   background-color: rgba(0,0,0,.25);
-  border: 1px solid dimgrey;
-  border-radius: 1px;
+  border: 1px solid rgba(105, 105, 105, 0.65);
+  border-radius: 2px;
   padding: 3px 8px;
   margin: 0;
   text-align: right;
   font-weight: 450;
+  height: 36px;
+  line-height: 32px;
 }
 
 footer {
